@@ -95,11 +95,14 @@
 		347C088A2CB177750081293F /* iOS-iBeacon-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				347C08C32CB180930081293F /* Resources */,
+				347C08C02CB1807C0081293F /* Infrastructure */,
+				347C08BD2CB180670081293F /* Presentation */,
+				347C08BA2CB180520081293F /* Data */,
+				347C08B62CB180390081293F /* Domain */,
 				347C088B2CB177750081293F /* iOS_iBeacon_DemoApp.swift */,
 				347C088D2CB177750081293F /* ContentView.swift */,
-				347C088F2CB1777B0081293F /* Assets.xcassets */,
 				347C08912CB1777B0081293F /* iOS_iBeacon_Demo.entitlements */,
-				347C08922CB1777B0081293F /* Preview Content */,
 			);
 			path = "iOS-iBeacon-Demo";
 			sourceTree = "<group>";
@@ -127,6 +130,99 @@
 				347C08A92CB1777C0081293F /* iOS_iBeacon_DemoUITestsLaunchTests.swift */,
 			);
 			path = "iOS-iBeacon-DemoUITests";
+			sourceTree = "<group>";
+		};
+		347C08B62CB180390081293F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				347C08B92CB1804D0081293F /* Interfaces */,
+				347C08B82CB180460081293F /* UseCases */,
+				347C08B72CB1803E0081293F /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		347C08B72CB1803E0081293F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		347C08B82CB180460081293F /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		347C08B92CB1804D0081293F /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		347C08BA2CB180520081293F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				347C08BC2CB180600081293F /* Mapper */,
+				347C08BB2CB180560081293F /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		347C08BB2CB180560081293F /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		347C08BC2CB180600081293F /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		347C08BD2CB180670081293F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				347C08922CB1777B0081293F /* Preview Content */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		347C08C02CB1807C0081293F /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				347C08C22CB1808D0081293F /* BluetoothServices */,
+				347C08C12CB180870081293F /* LocationServices */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		347C08C12CB180870081293F /* LocationServices */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LocationServices;
+			sourceTree = "<group>";
+		};
+		347C08C22CB1808D0081293F /* BluetoothServices */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BluetoothServices;
+			sourceTree = "<group>";
+		};
+		347C08C32CB180930081293F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				347C088F2CB1777B0081293F /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
