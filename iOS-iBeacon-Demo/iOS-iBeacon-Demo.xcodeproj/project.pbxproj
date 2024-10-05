@@ -15,6 +15,7 @@
 		347C08A82CB1777C0081293F /* iOS_iBeacon_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C08A72CB1777C0081293F /* iOS_iBeacon_DemoUITests.swift */; };
 		347C08AA2CB1777C0081293F /* iOS_iBeacon_DemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C08A92CB1777C0081293F /* iOS_iBeacon_DemoUITestsLaunchTests.swift */; };
 		347C08C62CB183A00081293F /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C08C52CB183A00081293F /* Beacon.swift */; };
+		347C08C82CB183DD0081293F /* BeaconRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C08C72CB183DD0081293F /* BeaconRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		347C08A72CB1777C0081293F /* iOS_iBeacon_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_iBeacon_DemoUITests.swift; sourceTree = "<group>"; };
 		347C08A92CB1777C0081293F /* iOS_iBeacon_DemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_iBeacon_DemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		347C08C52CB183A00081293F /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
+		347C08C72CB183DD0081293F /* BeaconRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 		347C08B92CB1804D0081293F /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				347C08C72CB183DD0081293F /* BeaconRepository.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				347C088E2CB177750081293F /* ContentView.swift in Sources */,
+				347C08C82CB183DD0081293F /* BeaconRepository.swift in Sources */,
 				347C088C2CB177750081293F /* iOS_iBeacon_DemoApp.swift in Sources */,
 				347C08C62CB183A00081293F /* Beacon.swift in Sources */,
 			);
