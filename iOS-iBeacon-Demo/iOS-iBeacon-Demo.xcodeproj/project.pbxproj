@@ -14,6 +14,7 @@
 		347C089E2CB1777C0081293F /* iOS_iBeacon_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C089D2CB1777C0081293F /* iOS_iBeacon_DemoTests.swift */; };
 		347C08A82CB1777C0081293F /* iOS_iBeacon_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C08A72CB1777C0081293F /* iOS_iBeacon_DemoUITests.swift */; };
 		347C08AA2CB1777C0081293F /* iOS_iBeacon_DemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C08A92CB1777C0081293F /* iOS_iBeacon_DemoUITestsLaunchTests.swift */; };
+		347C08C62CB183A00081293F /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C08C52CB183A00081293F /* Beacon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		347C08A32CB1777C0081293F /* iOS-iBeacon-DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-iBeacon-DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		347C08A72CB1777C0081293F /* iOS_iBeacon_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_iBeacon_DemoUITests.swift; sourceTree = "<group>"; };
 		347C08A92CB1777C0081293F /* iOS_iBeacon_DemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_iBeacon_DemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		347C08C52CB183A00081293F /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 		347C08B72CB1803E0081293F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				347C08C52CB183A00081293F /* Beacon.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 			files = (
 				347C088E2CB177750081293F /* ContentView.swift in Sources */,
 				347C088C2CB177750081293F /* iOS_iBeacon_DemoApp.swift in Sources */,
+				347C08C62CB183A00081293F /* Beacon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
