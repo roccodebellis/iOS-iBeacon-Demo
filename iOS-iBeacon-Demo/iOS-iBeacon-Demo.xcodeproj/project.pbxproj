@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		347C088C2CB177750081293F /* iOS_iBeacon_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C088B2CB177750081293F /* iOS_iBeacon_DemoApp.swift */; };
 		347C088E2CB177750081293F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C088D2CB177750081293F /* ContentView.swift */; };
 		347C08902CB1777B0081293F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 347C088F2CB1777B0081293F /* Assets.xcassets */; };
 		347C08942CB1777B0081293F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 347C08932CB1777B0081293F /* Preview Assets.xcassets */; };
@@ -16,6 +15,9 @@
 		347C08AA2CB1777C0081293F /* iOS_iBeacon_DemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C08A92CB1777C0081293F /* iOS_iBeacon_DemoUITestsLaunchTests.swift */; };
 		347C08C62CB183A00081293F /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C08C52CB183A00081293F /* Beacon.swift */; };
 		347C08C82CB183DD0081293F /* BeaconRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C08C72CB183DD0081293F /* BeaconRepository.swift */; };
+		347C08CA2CB184270081293F /* BeaconRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C08C92CB184270081293F /* BeaconRepositoryImpl.swift */; };
+		347C08D22CB2FA1B0081293F /* CoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C08D12CB2FA1B0081293F /* CoreLocationManager.swift */; };
+		347C08D32CB2FEB90081293F /* iOS_iBeacon_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C088B2CB177750081293F /* iOS_iBeacon_DemoApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		347C08A92CB1777C0081293F /* iOS_iBeacon_DemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_iBeacon_DemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		347C08C52CB183A00081293F /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		347C08C72CB183DD0081293F /* BeaconRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconRepository.swift; sourceTree = "<group>"; };
+		347C08C92CB184270081293F /* BeaconRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconRepositoryImpl.swift; sourceTree = "<group>"; };
+		347C08D12CB2FA1B0081293F /* CoreLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 				347C088A2CB177750081293F /* iOS-iBeacon-Demo */,
 				347C089C2CB1777C0081293F /* iOS-iBeacon-DemoTests */,
 				347C08A62CB1777C0081293F /* iOS-iBeacon-DemoUITests */,
+				347C088B2CB177750081293F /* iOS_iBeacon_DemoApp.swift */,
 				347C08892CB177750081293F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,12 +104,11 @@
 		347C088A2CB177750081293F /* iOS-iBeacon-Demo */ = {
 			isa = PBXGroup;
 			children = (
-				347C08C32CB180930081293F /* Resources */,
-				347C08C02CB1807C0081293F /* Infrastructure */,
-				347C08BD2CB180670081293F /* Presentation */,
-				347C08BA2CB180520081293F /* Data */,
 				347C08B62CB180390081293F /* Domain */,
-				347C088B2CB177750081293F /* iOS_iBeacon_DemoApp.swift */,
+				347C08BA2CB180520081293F /* Data */,
+				347C08BD2CB180670081293F /* Presentation */,
+				347C08C02CB1807C0081293F /* Infrastructure */,
+				347C08C32CB180930081293F /* Resources */,
 				347C088D2CB177750081293F /* ContentView.swift */,
 				347C08912CB1777B0081293F /* iOS_iBeacon_Demo.entitlements */,
 			);
@@ -122,6 +126,9 @@
 		347C089C2CB1777C0081293F /* iOS-iBeacon-DemoTests */ = {
 			isa = PBXGroup;
 			children = (
+				347C08CC2CB185130081293F /* DomainTest */,
+				347C08CD2CB185190081293F /* DataTest */,
+				347C08CE2CB185230081293F /* PresentationTest */,
 				347C089D2CB1777C0081293F /* iOS_iBeacon_DemoTests.swift */,
 			);
 			path = "iOS-iBeacon-DemoTests";
@@ -139,9 +146,9 @@
 		347C08B62CB180390081293F /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				347C08B92CB1804D0081293F /* Interfaces */,
-				347C08B82CB180460081293F /* UseCases */,
 				347C08B72CB1803E0081293F /* Entities */,
+				347C08B82CB180460081293F /* UseCases */,
+				347C08B92CB1804D0081293F /* Interfaces */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -172,8 +179,8 @@
 		347C08BA2CB180520081293F /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				347C08BC2CB180600081293F /* Mapper */,
 				347C08BB2CB180560081293F /* Repositories */,
+				347C08BC2CB180600081293F /* Mapper */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -181,6 +188,7 @@
 		347C08BB2CB180560081293F /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				347C08C92CB184270081293F /* BeaconRepositoryImpl.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 			children = (
 				347C08C22CB1808D0081293F /* BluetoothServices */,
 				347C08C12CB180870081293F /* LocationServices */,
+				347C08CB2CB184FD0081293F /* BeaconProvider */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -212,6 +221,7 @@
 		347C08C12CB180870081293F /* LocationServices */ = {
 			isa = PBXGroup;
 			children = (
+				347C08D12CB2FA1B0081293F /* CoreLocationManager.swift */,
 			);
 			path = LocationServices;
 			sourceTree = "<group>";
@@ -229,6 +239,34 @@
 				347C088F2CB1777B0081293F /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		347C08CB2CB184FD0081293F /* BeaconProvider */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BeaconProvider;
+			sourceTree = "<group>";
+		};
+		347C08CC2CB185130081293F /* DomainTest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DomainTest;
+			sourceTree = "<group>";
+		};
+		347C08CD2CB185190081293F /* DataTest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataTest;
+			sourceTree = "<group>";
+		};
+		347C08CE2CB185230081293F /* PresentationTest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PresentationTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,9 +399,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				347C08CA2CB184270081293F /* BeaconRepositoryImpl.swift in Sources */,
 				347C088E2CB177750081293F /* ContentView.swift in Sources */,
+				347C08D32CB2FEB90081293F /* iOS_iBeacon_DemoApp.swift in Sources */,
+				347C08D22CB2FA1B0081293F /* CoreLocationManager.swift in Sources */,
 				347C08C82CB183DD0081293F /* BeaconRepository.swift in Sources */,
-				347C088C2CB177750081293F /* iOS_iBeacon_DemoApp.swift in Sources */,
 				347C08C62CB183A00081293F /* Beacon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,7 +563,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS-iBeacon-Demo/iOS_iBeacon_Demo.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"iOS-iBeacon-Demo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"iOS-iBeacon-Demo/Presentation/Preview Content\"";
 				DEVELOPMENT_TEAM = 6A5AURU75H;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -562,7 +602,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS-iBeacon-Demo/iOS_iBeacon_Demo.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"iOS-iBeacon-Demo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"iOS-iBeacon-Demo/Presentation/Preview Content\"";
 				DEVELOPMENT_TEAM = 6A5AURU75H;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
