@@ -20,6 +20,7 @@
 		347C08D32CB2FEB90081293F /* iOS_iBeacon_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C088B2CB177750081293F /* iOS_iBeacon_DemoApp.swift */; };
 		347C08D72CB306E00081293F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 347C08D62CB306E00081293F /* Localizable.xcstrings */; };
 		347C08D92CB307170081293F /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 347C08D82CB307170081293F /* InfoPlist.xcstrings */; };
+		34BD6FC32CB581C5007ECE35 /* MonitorBeacons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FC22CB581C5007ECE35 /* MonitorBeacons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		347C08D12CB2FA1B0081293F /* CoreLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationManager.swift; sourceTree = "<group>"; };
 		347C08D62CB306E00081293F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		347C08D82CB307170081293F /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		34BD6FC22CB581C5007ECE35 /* MonitorBeacons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorBeacons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 		347C08B82CB180460081293F /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				34BD6FC22CB581C5007ECE35 /* MonitorBeacons.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				347C08CA2CB184270081293F /* BeaconRepositoryImpl.swift in Sources */,
+				34BD6FC32CB581C5007ECE35 /* MonitorBeacons.swift in Sources */,
 				347C088E2CB177750081293F /* ContentView.swift in Sources */,
 				347C08D32CB2FEB90081293F /* iOS_iBeacon_DemoApp.swift in Sources */,
 				347C08D22CB2FA1B0081293F /* CoreLocationManager.swift in Sources */,
