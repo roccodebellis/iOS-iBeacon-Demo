@@ -9,31 +9,22 @@ import SwiftUI
 import Combine
 
 class BeaconViewModel: ObservableObject {
-    private let monitorBeacons: MonitorBeacons
+    private let locationManager: CoreLocationManager
     @Published var beacons: [Beacon] = []
 
-    init(monitorBeacons: MonitorBeacons) {
-        self.monitorBeacons = monitorBeacons
-        fetchBeacons()
+    init(locationManager: CoreLocationManager) {
+        self.locationManager = locationManager
     }
 
-    func fetchBeacons() {
-        self.beacons = monitorBeacons.execute()
-    }
-}
-
-class MockBeaconViewModel: BeaconViewModel {
-    override init(monitorBeacons: MonitorBeacons = MockMonitorBeacons()) {
-        super.init(monitorBeacons: monitorBeacons)
-        // Sovrascriviamo fetchBeacons per evitare di eseguire logica reale durante la preview
-        self.beacons = [
-            Beacon(uuid: UUID(), major: 1, minor: 1, proximity: .near),
-            Beacon(uuid: UUID(), major: 2, minor: 2, proximity: .immediate),
-            Beacon(uuid: UUID(), major: 3, minor: 3, proximity: .far)
-        ]
-    }
-
-    override func fetchBeacons() {
-        // Mocking data, non fare nulla
+    func startRangingWithUUID(uuidString: String) {
+        locationManager.startRangingBeacons(with: uuidString)
+        self.beacons = locationManager.rangedBeacons.map { clBeacon in
+            Beacon(
+                uuid: clBeacon.uuid,
+                major: clBeacon.major.intValue,
+                minor: clBeacon.minor.intValue,
+                proximity: clBeacon.proximity
+            )
+        }
     }
 }

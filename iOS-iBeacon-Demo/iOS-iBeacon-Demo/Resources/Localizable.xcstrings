@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Enter UUID" : {
+
+    },
     "Hello, world!" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -23,6 +26,9 @@
       }
     },
     "Proximity: %lld" : {
+
+    },
+    "Start Ranging" : {
 
     },
     "UUID: %@" : {

@@ -13,10 +13,7 @@ struct iOS_iBeacon_DemoApp: App {
         WindowGroup {
             ContentView(
                 viewModel: BeaconViewModel(
-                    monitorBeacons: MonitorBeaconsImpl(
-                        beaconRepository: BeaconRepositoryImpl(
-                            locationManager: CoreLocationManager()
-                        )
+                    locationManager: CoreLocationManager(
                     )
                 )
             )
