@@ -22,6 +22,7 @@
 		347C08D92CB307170081293F /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 347C08D82CB307170081293F /* InfoPlist.xcstrings */; };
 		34BD6FC12CB581A0007ECE35 /* BeaconViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FC02CB581A0007ECE35 /* BeaconViewModel.swift */; };
 		34BD6FC32CB581C5007ECE35 /* MonitorBeacons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FC22CB581C5007ECE35 /* MonitorBeacons.swift */; };
+		34BD6FCB2CB5DE62007ECE35 /* AppLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FCA2CB5DE62007ECE35 /* AppLog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		347C08D82CB307170081293F /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		34BD6FC02CB581A0007ECE35 /* BeaconViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconViewModel.swift; sourceTree = "<group>"; };
 		34BD6FC22CB581C5007ECE35 /* MonitorBeacons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorBeacons.swift; sourceTree = "<group>"; };
+		34BD6FCA2CB5DE62007ECE35 /* AppLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 		347C08C02CB1807C0081293F /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				34BD6FC92CB5DE55007ECE35 /* Logger */,
 				347C08C22CB1808D0081293F /* BluetoothServices */,
 				347C08C12CB180870081293F /* LocationServices */,
 				347C08CB2CB184FD0081293F /* BeaconProvider */,
@@ -279,6 +282,14 @@
 			children = (
 			);
 			path = PresentationTest;
+			sourceTree = "<group>";
+		};
+		34BD6FC92CB5DE55007ECE35 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				34BD6FCA2CB5DE62007ECE35 /* AppLog.swift */,
+			);
+			path = Logger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,6 +429,7 @@
 				34BD6FC12CB581A0007ECE35 /* BeaconViewModel.swift in Sources */,
 				34BD6FC32CB581C5007ECE35 /* MonitorBeacons.swift in Sources */,
 				347C088E2CB177750081293F /* ContentView.swift in Sources */,
+				34BD6FCB2CB5DE62007ECE35 /* AppLog.swift in Sources */,
 				347C08D32CB2FEB90081293F /* iOS_iBeacon_DemoApp.swift in Sources */,
 				347C08D22CB2FA1B0081293F /* CoreLocationManager.swift in Sources */,
 				347C08C82CB183DD0081293F /* BeaconRepository.swift in Sources */,
