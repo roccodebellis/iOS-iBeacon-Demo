@@ -18,6 +18,8 @@
 		347C08CA2CB184270081293F /* BeaconRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C08C92CB184270081293F /* BeaconRepositoryImpl.swift */; };
 		347C08D22CB2FA1B0081293F /* CoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C08D12CB2FA1B0081293F /* CoreLocationManager.swift */; };
 		347C08D32CB2FEB90081293F /* iOS_iBeacon_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C088B2CB177750081293F /* iOS_iBeacon_DemoApp.swift */; };
+		347C08D72CB306E00081293F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 347C08D62CB306E00081293F /* Localizable.xcstrings */; };
+		347C08D92CB307170081293F /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 347C08D82CB307170081293F /* InfoPlist.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		347C08C72CB183DD0081293F /* BeaconRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconRepository.swift; sourceTree = "<group>"; };
 		347C08C92CB184270081293F /* BeaconRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconRepositoryImpl.swift; sourceTree = "<group>"; };
 		347C08D12CB2FA1B0081293F /* CoreLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationManager.swift; sourceTree = "<group>"; };
+		347C08D62CB306E00081293F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		347C08D82CB307170081293F /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,7 +240,9 @@
 		347C08C32CB180930081293F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				347C08D62CB306E00081293F /* Localizable.xcstrings */,
 				347C088F2CB1777B0081293F /* Assets.xcassets */,
+				347C08D82CB307170081293F /* InfoPlist.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 			knownRegions = (
 				en,
 				Base,
+				it,
 			);
 			mainGroup = 347C087F2CB177750081293F;
 			productRefGroup = 347C08892CB177750081293F /* Products */;
@@ -375,6 +382,8 @@
 			files = (
 				347C08942CB1777B0081293F /* Preview Assets.xcassets in Resources */,
 				347C08902CB1777B0081293F /* Assets.xcassets in Resources */,
+				347C08D92CB307170081293F /* InfoPlist.xcstrings in Resources */,
+				347C08D72CB306E00081293F /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +577,11 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS-iBeacon-Demo/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need access to Bluetooth to detect and communicate with iBeacons.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need access to your location even when the app is in the background to monitor iBeacons.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need access to your location while the app is in use to detect nearby iBeacons.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -607,6 +621,11 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS-iBeacon-Demo/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need access to Bluetooth to detect and communicate with iBeacons.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need access to your location even when the app is in the background to monitor iBeacons.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need access to your location while the app is in use to detect nearby iBeacons.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
