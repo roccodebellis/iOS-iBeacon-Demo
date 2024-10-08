@@ -21,3 +21,19 @@ class BeaconViewModel: ObservableObject {
         self.beacons = monitorBeacons.execute()
     }
 }
+
+class MockBeaconViewModel: BeaconViewModel {
+    override init(monitorBeacons: MonitorBeacons = MockMonitorBeacons()) {
+        super.init(monitorBeacons: monitorBeacons)
+        // Sovrascriviamo fetchBeacons per evitare di eseguire logica reale durante la preview
+        self.beacons = [
+            Beacon(uuid: UUID(), major: 1, minor: 1, proximity: .near),
+            Beacon(uuid: UUID(), major: 2, minor: 2, proximity: .immediate),
+            Beacon(uuid: UUID(), major: 3, minor: 3, proximity: .far)
+        ]
+    }
+
+    override func fetchBeacons() {
+        // Mocking data, non fare nulla
+    }
+}

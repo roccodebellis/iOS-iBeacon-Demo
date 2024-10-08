@@ -8,17 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var viewModel: BeaconViewModel
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        List(viewModel.beacons, id: \.uuid) { beacon in
+            VStack(alignment: .leading) {
+                Text("UUID: \(beacon.uuid)")
+                Text("Major: \(beacon.major), Minor: \(beacon.minor)")
+                Text("Proximity: \(beacon.proximity.rawValue)")
+            }
         }
-        .padding()
+        .onAppear {
+            viewModel.fetchBeacons()
+        }
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(viewModel: MockBeaconViewModel())
 }

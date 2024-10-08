@@ -11,7 +11,15 @@ import SwiftUI
 struct iOS_iBeacon_DemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(
+                viewModel: BeaconViewModel(
+                    monitorBeacons: MonitorBeaconsImpl(
+                        beaconRepository: BeaconRepositoryImpl(
+                            locationManager: CoreLocationManager()
+                        )
+                    )
+                )
+            )
         }
     }
 }

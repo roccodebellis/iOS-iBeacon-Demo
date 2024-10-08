@@ -22,3 +22,13 @@ final class MonitorBeaconsImpl: MonitorBeacons {
         return beaconRepository.getBeacons()
     }
 }
+
+class MockMonitorBeacons: MonitorBeacons {
+    func execute() -> [Beacon] {
+        return [
+            Beacon(uuid: UUID(), major: 1, minor: 1, proximity: .near),
+            Beacon(uuid: UUID(), major: 2, minor: 2, proximity: .immediate),
+            Beacon(uuid: UUID(), major: 3, minor: 3, proximity: .far)
+        ]
+    }
+}
