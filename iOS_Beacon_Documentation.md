@@ -1,10 +1,9 @@
+
 # iOS Beacon Documentation
 
 ## Overview
 
 This document provides an overview of the usage of iBeacons in iOS apps, including limitations encountered during development, as well as background execution constraints.
-
-#
 
 ### iBeacon Overview
 
@@ -28,14 +27,14 @@ locationManager.startRangingBeacons(satisfying: constraint)
 
 ### Limitations:
 
-- *Short background execution time*: When an iOS app is sent to the background, it can only run for a few seconds (30 seconds to 3 minutes depending on the case). After this period, beacon ranging stops unless specific steps are taken.
-- *iBeacon vs Other Beacons*: Manufacturer advertisements (e.g., AltBeacon) are blocked in the background when using CoreBluetooth. iBeacons can still be detected using CoreLocation, but this requires additional background permissions.
-
+- *Short background execution time*: When an iOS app is sent to the background, it can only run for a few seconds (30 seconds to 3 minutes depending on the case). After this period, beacon ranging stops unless specific steps are taken【13†source】.
+- *Beacon ranging timeout*: Ranging for beacons in the background is subject to a 10-minute limit by iOS, after which the app will stop scanning for beacons unless it is brought to the foreground【14†source】.
+  
 ### Extending Background Time:
 
 To extend background execution time, you can use a combination of CoreLocation and background tasks:
 
-1.	Enable Location Background Mode:
+1. **Enable Location Background Mode**:
 In your Info.plist, add the location mode to UIBackgroundModes to allow the app to run location services in the background.
 
 ```xml
@@ -45,17 +44,17 @@ In your Info.plist, add the location mode to UIBackgroundModes to allow the app 
 </array>
 ```
 
-2.	Request Always Authorization for Location:
+2. **Request Always Authorization for Location**:
 Request the NSLocationAlwaysUsageDescription permission to ensure your app can access location data at all times.
 
-3.	Start Major Location Updates:
+3. **Start Major Location Updates**:
 Even if you don’t need precise location data, starting location updates ensures the app stays alive in the background:
 
 ```swift
 locationManager.startUpdatingLocation()
 ```
 
-4.	Start a Background Task:
+4. **Start a Background Task**:
 Use a background task to extend the life of your app when entering the background.
 
 ```swift
@@ -66,21 +65,30 @@ backgroundTask = UIApplication.shared.beginBackgroundTask {
 }
 ```
 
+5. **Keep the Location Manager in the App Delegate**:
+To ensure continuous background execution, the `CLLocationManager` should be managed in the App Delegate rather than in a view controller.
+
+```swift
+locationManager.allowsBackgroundLocationUpdates = true
+locationManager.pausesLocationUpdatesAutomatically = false
+```
+
 ### Battery Drain
 
 Running beacon scanning in the background will cause significant battery drain, especially if scanning frequently (e.g., every 15 seconds) over long periods (1-2 hours).
 
 ### User Experience Considerations
 
-	1.	App Store Approval: To be approved by Apple, your app must provide a location-specific benefit that is obvious to the user, otherwise, Apple may reject the app for using location services unnecessarily.
-	2.	Location Permissions: iOS will periodically present a dialog to users (every 3 days) warning them that the app is using location in the background. This may discourage users from keeping the app running in the background.
+- **App Store Approval**: To be approved by Apple, your app must provide a location-specific benefit that is obvious to the user, otherwise, Apple may reject the app for using location services unnecessarily.
+- **Location Permissions**: iOS will periodically present a dialog to users (every 3 days) warning them that the app is using location in the background. This may discourage users from keeping the app running in the background.
 
 ## Limitations and Challenges
 
-1.	Beacon Detection in Background: In background mode, iOS restricts the time apps can scan for beacons, and scanning may stop after a short period (30 seconds to 3 minutes). This can be mitigated by:
+1. **Beacon Detection in Background**: After approximately 10 minutes of background execution, beacon detection and ranging will stop【14†source】【13†source】. This can be mitigated by:
     - Using CoreLocation with background location updates.
     - Starting significant location changes to keep the app alive.
-2.	Battery Consumption: Continuous ranging and location updates in the background will significantly reduce the battery life of the user’s device.
+
+2. **Battery Consumption**: Continuous ranging and location updates in the background will significantly reduce the battery life of the user’s device.
 
 ## Additional Information: iBeacons and Background Modes
 
@@ -101,8 +109,9 @@ In a discussion on the [Apple Developer Forum](https://forums.developer.apple.co
 
 The use of background modes to monitor iBeacons and handle Bluetooth events can work, but developers must ensure that the use of these modes is justified according to Apple’s guidelines. Additionally, developers should be prepared to handle possible intermittent issues related to beacon detection in the background.
 
-
 ## Sources
 - [Apple CoreLocation Documentation](https://developer.apple.com/documentation/corelocation)
 - [AltBeacon iOS Beacon Tools](https://github.com/AltBeacon/ios-beacon-tools)
 - [StackOverflow Discussion on Background Scanning](https://stackoverflow.com/questions/59784388/ios-extending-background-time-for-beacon-monitoring)
+- [StackOverflow Beacon Ranging Timeout](https://stackoverflow.com/questions/35243224/beacon-ranging-in-the-background-on-ios)
+
