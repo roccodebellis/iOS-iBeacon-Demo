@@ -7,42 +7,36 @@
 
 import CoreLocation
 
-/// `CoreLocationManager` handles interactions with the CoreLocation framework,
-/// including requesting location permissions and ranging for beacons.
+/// `CoreLocationManager` handles CoreLocation tasks such as requesting location permissions and ranging iBeacons.
+///
+/// This class is responsible for managing the location services and beacon ranging, using Apple's modern API introduced in iOS 13.0.
 class CoreLocationManager: NSObject, CLLocationManagerDelegate {
     
-    // MARK: - Properties
+    /// The CoreLocation manager instance.
+    private let locationManager = CLLocationManager()
     
-    /// The `CLLocationManager` instance responsible for managing location services.
-    private let locationManager: CLLocationManager
-    
-    /// Closure that will be called when beacons are updated.
+    /// A closure that is called whenever beacons are updated.
     var onBeaconsUpdate: (([CLBeacon]) -> Void)?
     
-    // MARK: - Initialization
-    
-    /// Initializes the `CoreLocationManager` and sets itself as the delegate.
+    /// Initializes the `CoreLocationManager` and sets the delegate.
     override init() {
-        self.locationManager = CLLocationManager()
         super.init()
-        self.locationManager.delegate = self
+        locationManager.delegate = self
     }
     
-    // MARK: - Authorization
-    
-    /// Checks whether the app has the necessary location permissions.
+    /// Checks if the necessary location permissions have been granted.
     ///
-    /// - Returns: `true` if the app has `authorizedAlways` or `authorizedWhenInUse` status, `false` otherwise.
+    /// - Returns: `true` if permissions are granted; otherwise, `false`.
     func arePermissionsGranted() -> Bool {
-        let status = locationManager.authorizationStatus
-        return status == .authorizedAlways || status == .authorizedWhenInUse
+        let authorizationStatus = locationManager.authorizationStatus
+        return authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse
     }
     
-    /// Requests location permissions from the user.
+    
+    /// Requests the necessary location permissions from the user.
     ///
-    /// - Parameter always: Determines whether to request "always" authorization (default is `true`).
+    /// - Parameter always: A boolean indicating whether the app should request "Always" or "When In Use" permissions.
     func requestLocationPermissions(always: Bool = true) {
-        AppLog.info("Requesting location permissions.")
         if always {
             locationManager.requestAlwaysAuthorization()
         } else {
@@ -50,44 +44,44 @@ class CoreLocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    // MARK: - Beacon Ranging
-    
-    /// Starts ranging for beacons that match the specified UUID string.
+    /// Starts ranging beacons that match the given UUID string.
     ///
-    /// - Parameter uuidString: The UUID string used to identify the beacon.
+    /// This function uses `CLBeaconIdentityConstraint` to specify the beacons to monitor.
+    ///
+    /// - Parameter uuidString: A string representation of the UUID used to identify the beacons to range.
     func startRangingBeacons(with uuidString: String) {
-        guard let uuid = UUID(uuidString: uuidString.uppercased()) else {
-            AppLog.error("Invalid UUID string.")
+        guard let uuid = UUID(uuidString: uuidString) else {
+            AppLog.error("Invalid UUID string: \(uuidString)")
             return
         }
-        
         let constraint = CLBeaconIdentityConstraint(uuid: uuid)
         locationManager.startRangingBeacons(satisfying: constraint)
-        AppLog.info("Started ranging beacons with UUID: \(uuidString)")
     }
     
-    // MARK: - CLLocationManagerDelegate Methods
-    
-    /// Handles changes in location authorization status.
+    /// Stops ranging beacons that match the given UUID string.
     ///
-    /// This method is called when the authorization status changes, allowing
-    /// the app to handle location access grants or denials.
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .authorizedAlways, .authorizedWhenInUse:
-            AppLog.info("Location access already granted.")
-        case .denied, .restricted:
-            AppLog.error("Location access denied or restricted.")
-        default:
-            AppLog.warning("Unknown authorization status.")
+    /// This function uses `CLBeaconIdentityConstraint` to stop monitoring specific beacons.
+    ///
+    /// - Parameter uuidString: A string representation of the UUID used to identify the beacons to stop ranging.
+    func stopRangingBeacons(with uuidString: String) {
+        guard let uuid = UUID(uuidString: uuidString) else {
+            AppLog.error("Invalid UUID string: \(uuidString)")
+            return
         }
+        let constraint = CLBeaconIdentityConstraint(uuid: uuid)
+        locationManager.stopRangingBeacons(satisfying: constraint)
     }
     
-    /// Handles the detection of beacons within range.
+    /// Called whenever the `CLLocationManager` receives an update on ranged beacons.
     ///
-    /// This method updates the `rangedBeacons` array when beacons are detected.
+    /// This method must be internal as it conforms to the `CLLocationManagerDelegate` protocol.
+    ///
+    /// - Parameters:
+    ///   - manager: The location manager sending the update.
+    ///   - beacons: An array of `CLBeacon` objects representing the detected beacons.
+    ///   - constraint: The constraint that triggered the ranging update.
     func locationManager(_ manager: CLLocationManager, didRange beacons: [CLBeacon], satisfying constraint: CLBeaconIdentityConstraint) {
         onBeaconsUpdate?(beacons)
-        AppLog.debug("Ranged \(beacons.count) beacons.")
+        AppLog.debug("Ranged \(beacons.count) beacons for constraint: \(constraint.uuid)")
     }
 }

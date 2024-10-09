@@ -25,7 +25,7 @@ struct AppModuleView: View {
             PermissionModuleScreen(module: module.permissionModule)
         case .beaconManagement:
             BeaconScannerView(
-                viewModel: BeaconViewModel()
+                viewModel: module.beaconVM
             )
         }
     }

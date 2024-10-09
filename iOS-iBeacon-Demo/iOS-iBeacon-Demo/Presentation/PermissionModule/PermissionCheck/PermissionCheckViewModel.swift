@@ -7,22 +7,31 @@
 
 import Foundation
 
+/// `PermissionCheckViewModel` manages the state and logic for checking the app's permissions.
 final class PermissionCheckViewModel: ObservableObject {
-    private unowned let coordinator: AnyPermissionCheckVMCoordinator
     
-    // MARK: - Services
-    private let coreLocationManager: CoreLocationManager
+    /// A reference to the coordinator that manages the permission check view model's flow.
+    private weak var coordinator: AnyPermissionCheckVMCoordinator?
     
-    // MARK: - Init
+    /// The `ObservableCoreLocationManager` responsible for managing location permissions.
+    private let locationManager: ObservableCoreLocationManager
+    
+    // MARK: - Initialization
+    
+    /// Initializes the `PermissionCheckViewModel` with the required coordinator and location manager.
+    ///
+    /// - Parameters:
+    ///   - coordinator: The coordinator responsible for navigating after the permission check.
+    ///   - locationManager: The `ObservableCoreLocationManager` used for checking and requesting location permissions.
     init(
         coordinator: AnyPermissionCheckVMCoordinator,
-        coreLocationManager: CoreLocationManager
+        locationManager: ObservableCoreLocationManager
     ) {
         self.coordinator = coordinator
-        self.coreLocationManager = coreLocationManager
+        self.locationManager = locationManager
     }
     
     func requestLocationPermissions() {
-        coreLocationManager.requestLocationPermissions()
+        locationManager.requestLocationPermissions()
     }
 }
