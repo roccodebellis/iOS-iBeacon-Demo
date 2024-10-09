@@ -32,9 +32,6 @@ struct BeaconScannerView: View {
             }
         }
         .padding()
-        .onAppear {
-            viewModel.requestLocationPermissions()
-        }
     }
 }
 
@@ -50,6 +47,6 @@ struct BeaconRow: View {
     }
 }
 
-//#Preview {
-//    BeaconScannerView(viewModel: BeaconViewModel(monitorBeacons: MockMonitorBeacons()))
-//}
+#Preview {
+    BeaconScannerView(viewModel: BeaconViewModel(locationManager: MockObservableCoreLocationManager()))
+}

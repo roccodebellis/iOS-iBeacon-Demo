@@ -7,10 +7,8 @@
 
 import CoreLocation
 
-/// `CoreLocationManager` handles CoreLocation tasks such as requesting location permissions and ranging iBeacons.
-///
-/// This class is responsible for managing the location services and beacon ranging, using Apple's modern API introduced in iOS 13.0.
-class CoreLocationManager: NSObject, CLLocationManagerDelegate {
+/// `CoreLocationManager` handles CoreLocation-related tasks and conforms to `AnyCoreLocationManager`.
+class CoreLocationManager: NSObject, CLLocationManagerDelegate, AnyCoreLocationManager {
     
     /// The CoreLocation manager instance.
     private let locationManager = CLLocationManager()
@@ -26,7 +24,7 @@ class CoreLocationManager: NSObject, CLLocationManagerDelegate {
     
     /// Checks if the necessary location permissions have been granted.
     ///
-    /// - Returns: `true` if permissions are granted; otherwise, `false`.
+    /// - Returns: `true` if permissions are granted (`authorizedAlways` or `authorizedWhenInUse`), otherwise `false`.
     func arePermissionsGranted() -> Bool {
         let authorizationStatus = locationManager.authorizationStatus
         return authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse
@@ -44,11 +42,9 @@ class CoreLocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    /// Starts ranging beacons that match the given UUID string.
+    /// Starts ranging beacons that match the provided UUID string.
     ///
-    /// This function uses `CLBeaconIdentityConstraint` to specify the beacons to monitor.
-    ///
-    /// - Parameter uuidString: A string representation of the UUID used to identify the beacons to range.
+    /// - Parameter uuidString: The UUID string of the beacons to range.
     func startRangingBeacons(with uuidString: String) {
         guard let uuid = UUID(uuidString: uuidString) else {
             AppLog.error("Invalid UUID string: \(uuidString)")
@@ -58,11 +54,9 @@ class CoreLocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.startRangingBeacons(satisfying: constraint)
     }
     
-    /// Stops ranging beacons that match the given UUID string.
+    /// Stops ranging beacons that match the provided UUID string.
     ///
-    /// This function uses `CLBeaconIdentityConstraint` to stop monitoring specific beacons.
-    ///
-    /// - Parameter uuidString: A string representation of the UUID used to identify the beacons to stop ranging.
+    /// - Parameter uuidString: The UUID string of the beacons to stop ranging.
     func stopRangingBeacons(with uuidString: String) {
         guard let uuid = UUID(uuidString: uuidString) else {
             AppLog.error("Invalid UUID string: \(uuidString)")
@@ -83,5 +77,25 @@ class CoreLocationManager: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didRange beacons: [CLBeacon], satisfying constraint: CLBeaconIdentityConstraint) {
         onBeaconsUpdate?(beacons)
         AppLog.debug("Ranged \(beacons.count) beacons for constraint: \(constraint.uuid)")
+    }
+}
+
+/// A mock implementation of `AnyCoreLocationManager` for SwiftUI previews and unit tests.
+class MockCoreLocationManager: AnyCoreLocationManager {
+    
+    func requestLocationPermissions(always: Bool) {
+        AppLog.debug("MockCoreLocationManager: requestLocationPermissions called")
+    }
+    
+    func arePermissionsGranted() -> Bool {
+        return true
+    }
+    
+    func startRangingBeacons(with uuidString: String) {
+        AppLog.debug("MockCoreLocationManager: startRangingBeacons called with UUID: \(uuidString)")
+    }
+    
+    func stopRangingBeacons(with uuidString: String) {
+        AppLog.debug("MockCoreLocationManager: stopRangingBeacons called with UUID: \(uuidString)")
     }
 }

@@ -18,7 +18,7 @@ final class AppModule: ObservableObject {
     // MARK: - Services
     
     /// The instance of `ObservableCoreLocationManager` responsible for managing location and beacon-related services.
-    private let locationManager: ObservableCoreLocationManager
+    private let locationManager: AnyObservableCoreLocationManager
     
     // MARK: - Init
     
@@ -26,7 +26,7 @@ final class AppModule: ObservableObject {
     ///
     /// - Parameter locationManager: An instance of `ObservableCoreLocationManager`. Defaults to a singleton instance.
     init(
-        locationManager: ObservableCoreLocationManager = ObservableCoreLocationManager()
+        locationManager: AnyObservableCoreLocationManager = ObservableCoreLocationManager()
     ) {
         self.locationManager = locationManager
     }

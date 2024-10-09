@@ -33,6 +33,7 @@
 		34BD6FDD2CB5EE5B007ECE35 /* PermissionCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FDC2CB5EE5B007ECE35 /* PermissionCheckViewModel.swift */; };
 		34BD6FDF2CB5EE80007ECE35 /* AnyPermissionCheckVMCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FDE2CB5EE80007ECE35 /* AnyPermissionCheckVMCoordinator.swift */; };
 		34BD6FE12CB646B7007ECE35 /* ObservableCoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FE02CB646B7007ECE35 /* ObservableCoreLocationManager.swift */; };
+		34BD6FEE2CB65F92007ECE35 /* AnyCoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FED2CB65F92007ECE35 /* AnyCoreLocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		34BD6FDC2CB5EE5B007ECE35 /* PermissionCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCheckViewModel.swift; sourceTree = "<group>"; };
 		34BD6FDE2CB5EE80007ECE35 /* AnyPermissionCheckVMCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPermissionCheckVMCoordinator.swift; sourceTree = "<group>"; };
 		34BD6FE02CB646B7007ECE35 /* ObservableCoreLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableCoreLocationManager.swift; sourceTree = "<group>"; };
+		34BD6FED2CB65F92007ECE35 /* AnyCoreLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCoreLocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 			children = (
 				347C08D12CB2FA1B0081293F /* CoreLocationManager.swift */,
 				34BD6FE02CB646B7007ECE35 /* ObservableCoreLocationManager.swift */,
+				34BD6FED2CB65F92007ECE35 /* AnyCoreLocationManager.swift */,
 			);
 			path = LocationServices;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				34BD6FC82CB5DC7C007ECE35 /* AppModule.swift in Sources */,
 				34BD6FC12CB581A0007ECE35 /* BeaconViewModel.swift in Sources */,
 				34BD6FC32CB581C5007ECE35 /* MonitorBeacons.swift in Sources */,
+				34BD6FEE2CB65F92007ECE35 /* AnyCoreLocationManager.swift in Sources */,
 				347C088E2CB177750081293F /* BeaconScannerView.swift in Sources */,
 				34BD6FE12CB646B7007ECE35 /* ObservableCoreLocationManager.swift in Sources */,
 				34BD6FCB2CB5DE62007ECE35 /* AppLog.swift in Sources */,

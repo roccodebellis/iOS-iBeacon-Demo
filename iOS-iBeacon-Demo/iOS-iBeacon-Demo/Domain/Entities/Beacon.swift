@@ -20,14 +20,12 @@ struct Beacon: Hashable, Sendable {
         hasher.combine(uuid)
         hasher.combine(major)
         hasher.combine(minor)
-        hasher.combine(proximity)
     }
 
     // Conformance to Equatable (Hashable implies Equatable)
     static func == (lhs: Beacon, rhs: Beacon) -> Bool {
         return lhs.uuid == rhs.uuid &&
                lhs.major == rhs.major &&
-               lhs.minor == rhs.minor &&
-               lhs.proximity == rhs.proximity
+               lhs.minor == rhs.minor
     }
 }

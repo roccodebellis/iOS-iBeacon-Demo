@@ -14,7 +14,7 @@ class BeaconViewModel: ObservableObject {
     // MARK: - Properties
     
     /// The instance of `ObservableCoreLocationManager` that handles beacon scanning and location updates.
-    private let locationManager: ObservableCoreLocationManager
+    private let locationManager: AnyObservableCoreLocationManager
     
     /// A published property that reflects the list of detected `Beacon` structs.
     @Published var beacons: [Beacon] = []
@@ -27,7 +27,7 @@ class BeaconViewModel: ObservableObject {
     /// Initializes the `BeaconViewModel` with a given `ObservableCoreLocationManager`.
     ///
     /// - Parameter locationManager: An instance of `ObservableCoreLocationManager`. Defaults to a new instance.
-    init(locationManager: ObservableCoreLocationManager) {
+    init(locationManager: AnyObservableCoreLocationManager) {
         self.locationManager = locationManager
         AppLog.info("BeaconViewModel initialized")
         self.setupBeaconMonitoring()
@@ -37,20 +37,14 @@ class BeaconViewModel: ObservableObject {
     
     /// Sets up beacon monitoring by observing the beacons published from `ObservableCoreLocationManager`.
     private func setupBeaconMonitoring() {
-        locationManager.$beacons
+        locationManager.beaconsPublisher
             .receive(on: DispatchQueue.main)
             .assign(to: &$beacons)
         AppLog.debug("Beacon monitoring set up in BeaconViewModel")
     }
     
-    // MARK: - Permissions and Beacon Ranging
-    
-    /// Requests the necessary location permissions from the user.
-    func requestLocationPermissions() {
-        AppLog.info("Requesting location permissions")
-        locationManager.requestLocationPermissions(always: true)
-    }
-    
+    // MARK: - Beacon Ranging
+
     /// Updates the UUID used for beacon ranging.
     ///
     /// - Parameter uuid: The UUID string entered by the user.

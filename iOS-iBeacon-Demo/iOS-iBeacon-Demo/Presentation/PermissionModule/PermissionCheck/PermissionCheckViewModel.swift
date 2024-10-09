@@ -14,7 +14,7 @@ final class PermissionCheckViewModel: ObservableObject {
     private weak var coordinator: AnyPermissionCheckVMCoordinator?
     
     /// The `ObservableCoreLocationManager` responsible for managing location permissions.
-    private let locationManager: ObservableCoreLocationManager
+    private let locationManager: AnyObservableCoreLocationManager
     
     // MARK: - Initialization
     
@@ -25,13 +25,13 @@ final class PermissionCheckViewModel: ObservableObject {
     ///   - locationManager: The `ObservableCoreLocationManager` used for checking and requesting location permissions.
     init(
         coordinator: AnyPermissionCheckVMCoordinator,
-        locationManager: ObservableCoreLocationManager
+        locationManager: AnyObservableCoreLocationManager
     ) {
         self.coordinator = coordinator
         self.locationManager = locationManager
     }
     
     func requestLocationPermissions() {
-        locationManager.requestLocationPermissions()
+        locationManager.requestLocationPermissions(always: true)
     }
 }

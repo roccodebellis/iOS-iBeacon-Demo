@@ -16,7 +16,7 @@ final class PermissionModule: ObservableObject {
     // MARK: - Services
     
     /// The `ObservableCoreLocationManager` used for managing location services and permissions.
-    private let locationManager: ObservableCoreLocationManager
+    private let locationManager: AnyObservableCoreLocationManager
     
     // MARK: - Initialization
     
@@ -27,7 +27,7 @@ final class PermissionModule: ObservableObject {
     ///   - locationManager: The `ObservableCoreLocationManager` instance to manage location-related tasks.
     init(
         moduleCoordinator: AnyPermissionModuleCoordinator,
-        locationManager: ObservableCoreLocationManager
+        locationManager: AnyObservableCoreLocationManager
     ) {
         self.moduleCoordinator = moduleCoordinator
         self.locationManager = locationManager
