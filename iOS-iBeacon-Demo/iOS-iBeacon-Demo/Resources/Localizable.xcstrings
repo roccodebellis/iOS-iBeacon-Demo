@@ -4,6 +4,9 @@
     "Enter UUID" : {
 
     },
+    "Grant Location Permissions" : {
+
+    },
     "Hello, world!" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -15,6 +18,9 @@
         }
       }
     },
+    "Launching..." : {
+
+    },
     "Major: %lld, Minor: %lld" : {
       "localizations" : {
         "en" : {
@@ -24,6 +30,12 @@
           }
         }
       }
+    },
+    "Permissions Required" : {
+
+    },
+    "Please grant the necessary permissions to continue." : {
+
     },
     "Proximity: %lld" : {
 

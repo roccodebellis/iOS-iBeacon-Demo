@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MonitorBeacons {
-    func execute() -> [Beacon]
+    func execute(uuidString: String) -> [Beacon]
 }
 
 final class MonitorBeaconsImpl: MonitorBeacons {
@@ -18,17 +18,19 @@ final class MonitorBeaconsImpl: MonitorBeacons {
         self.beaconRepository = beaconRepository
     }
 
-    func execute() -> [Beacon] {
-        return beaconRepository.getBeacons()
+    func execute(uuidString: String) -> [Beacon] {
+        // Qui chiameremo il repository per gestire il monitoraggio e restituire i beacon
+        return beaconRepository.getBeacons(for: uuidString)
     }
 }
 
 class MockMonitorBeacons: MonitorBeacons {
-    func execute() -> [Beacon] {
+    func execute(uuidString: String) -> [Beacon] {
+        // Returns a simulated array of beacons for testing, using the provided UUID
         return [
-            Beacon(uuid: UUID(), major: 1, minor: 1, proximity: .near),
-            Beacon(uuid: UUID(), major: 2, minor: 2, proximity: .immediate),
-            Beacon(uuid: UUID(), major: 3, minor: 3, proximity: .far)
+            Beacon(uuid: UUID(uuidString: uuidString) ?? UUID(), major: 1, minor: 1, proximity: .near),
+            Beacon(uuid: UUID(uuidString: uuidString) ?? UUID(), major: 2, minor: 2, proximity: .immediate),
+            Beacon(uuid: UUID(uuidString: uuidString) ?? UUID(), major: 3, minor: 3, proximity: .far)
         ]
     }
 }

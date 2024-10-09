@@ -8,5 +8,5 @@
 import Foundation
 
 protocol BeaconRepository {
-    func getBeacons() -> [Beacon]
+    func getBeacons(for uuidString: String) -> [Beacon]
 }

@@ -73,6 +73,24 @@
         }
       }
     },
+    "NSLocationUsageDescription" : {
+      "comment" : "Privacy - Location Usage Description",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This app requires access to your location to detect nearby iBeacons and provide relevant notifications."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questa app richiede l'accesso alla tua posizione per rilevare i beacon nelle vicinanze e fornire notifiche pertinenti."
+          }
+        }
+      }
+    },
     "NSLocationWhenInUseUsageDescription" : {
       "comment" : "Privacy - Location When In Use Usage Description",
       "extractionState" : "extracted_with_value",
@@ -81,6 +99,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "We need access to your location while the app is in use to detect nearby iBeacons."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbiamo bisogno dell'accesso alla tua posizione mentre l'app è in uso per rilevare i beacon nelle vicinanze."
           }
         }
       }

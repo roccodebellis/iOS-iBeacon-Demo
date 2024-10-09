@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		347C088E2CB177750081293F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C088D2CB177750081293F /* ContentView.swift */; };
+		347C088E2CB177750081293F /* BeaconScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C088D2CB177750081293F /* BeaconScannerView.swift */; };
 		347C08902CB1777B0081293F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 347C088F2CB1777B0081293F /* Assets.xcassets */; };
 		347C08942CB1777B0081293F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 347C08932CB1777B0081293F /* Preview Assets.xcassets */; };
 		347C089E2CB1777C0081293F /* iOS_iBeacon_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C089D2CB1777C0081293F /* iOS_iBeacon_DemoTests.swift */; };
@@ -22,7 +22,17 @@
 		347C08D92CB307170081293F /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 347C08D82CB307170081293F /* InfoPlist.xcstrings */; };
 		34BD6FC12CB581A0007ECE35 /* BeaconViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FC02CB581A0007ECE35 /* BeaconViewModel.swift */; };
 		34BD6FC32CB581C5007ECE35 /* MonitorBeacons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FC22CB581C5007ECE35 /* MonitorBeacons.swift */; };
+		34BD6FC62CB5DC41007ECE35 /* AppModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FC52CB5DC41007ECE35 /* AppModuleView.swift */; };
+		34BD6FC82CB5DC7C007ECE35 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FC72CB5DC7C007ECE35 /* AppModule.swift */; };
 		34BD6FCB2CB5DE62007ECE35 /* AppLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FCA2CB5DE62007ECE35 /* AppLog.swift */; };
+		34BD6FD12CB5E0D8007ECE35 /* PermissionCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FD02CB5E0D8007ECE35 /* PermissionCheckView.swift */; };
+		34BD6FD32CB5E53B007ECE35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FD22CB5E53B007ECE35 /* AppDelegate.swift */; };
+		34BD6FD52CB5ECC3007ECE35 /* AnyPermissionModuleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FD42CB5ECC3007ECE35 /* AnyPermissionModuleCoordinator.swift */; };
+		34BD6FD72CB5ECE4007ECE35 /* PermissionModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FD62CB5ECE4007ECE35 /* PermissionModule.swift */; };
+		34BD6FD92CB5ED4C007ECE35 /* PermissionModuleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FD82CB5ED4C007ECE35 /* PermissionModuleScreen.swift */; };
+		34BD6FDD2CB5EE5B007ECE35 /* PermissionCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FDC2CB5EE5B007ECE35 /* PermissionCheckViewModel.swift */; };
+		34BD6FDF2CB5EE80007ECE35 /* AnyPermissionCheckVMCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FDE2CB5EE80007ECE35 /* AnyPermissionCheckVMCoordinator.swift */; };
+		34BD6FE12CB646B7007ECE35 /* ObservableCoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD6FE02CB646B7007ECE35 /* ObservableCoreLocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +55,7 @@
 /* Begin PBXFileReference section */
 		347C08882CB177750081293F /* iOS-iBeacon-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-iBeacon-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		347C088B2CB177750081293F /* iOS_iBeacon_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_iBeacon_DemoApp.swift; sourceTree = "<group>"; };
-		347C088D2CB177750081293F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		347C088D2CB177750081293F /* BeaconScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconScannerView.swift; sourceTree = "<group>"; };
 		347C088F2CB1777B0081293F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		347C08912CB1777B0081293F /* iOS_iBeacon_Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS_iBeacon_Demo.entitlements; sourceTree = "<group>"; };
 		347C08932CB1777B0081293F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -62,7 +72,17 @@
 		347C08D82CB307170081293F /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		34BD6FC02CB581A0007ECE35 /* BeaconViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconViewModel.swift; sourceTree = "<group>"; };
 		34BD6FC22CB581C5007ECE35 /* MonitorBeacons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorBeacons.swift; sourceTree = "<group>"; };
+		34BD6FC52CB5DC41007ECE35 /* AppModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModuleView.swift; sourceTree = "<group>"; };
+		34BD6FC72CB5DC7C007ECE35 /* AppModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModule.swift; sourceTree = "<group>"; };
 		34BD6FCA2CB5DE62007ECE35 /* AppLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLog.swift; sourceTree = "<group>"; };
+		34BD6FD02CB5E0D8007ECE35 /* PermissionCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCheckView.swift; sourceTree = "<group>"; };
+		34BD6FD22CB5E53B007ECE35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		34BD6FD42CB5ECC3007ECE35 /* AnyPermissionModuleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPermissionModuleCoordinator.swift; sourceTree = "<group>"; };
+		34BD6FD62CB5ECE4007ECE35 /* PermissionModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionModule.swift; sourceTree = "<group>"; };
+		34BD6FD82CB5ED4C007ECE35 /* PermissionModuleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionModuleScreen.swift; sourceTree = "<group>"; };
+		34BD6FDC2CB5EE5B007ECE35 /* PermissionCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCheckViewModel.swift; sourceTree = "<group>"; };
+		34BD6FDE2CB5EE80007ECE35 /* AnyPermissionCheckVMCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPermissionCheckVMCoordinator.swift; sourceTree = "<group>"; };
+		34BD6FE02CB646B7007ECE35 /* ObservableCoreLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableCoreLocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +116,6 @@
 				347C088A2CB177750081293F /* iOS-iBeacon-Demo */,
 				347C089C2CB1777C0081293F /* iOS-iBeacon-DemoTests */,
 				347C08A62CB1777C0081293F /* iOS-iBeacon-DemoUITests */,
-				347C088B2CB177750081293F /* iOS_iBeacon_DemoApp.swift */,
 				347C08892CB177750081293F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,12 +133,15 @@
 		347C088A2CB177750081293F /* iOS-iBeacon-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				347C088B2CB177750081293F /* iOS_iBeacon_DemoApp.swift */,
+				34BD6FD22CB5E53B007ECE35 /* AppDelegate.swift */,
+				34BD6FC72CB5DC7C007ECE35 /* AppModule.swift */,
+				34BD6FC52CB5DC41007ECE35 /* AppModuleView.swift */,
 				347C08B62CB180390081293F /* Domain */,
 				347C08BA2CB180520081293F /* Data */,
 				347C08BD2CB180670081293F /* Presentation */,
 				347C08C02CB1807C0081293F /* Infrastructure */,
 				347C08C32CB180930081293F /* Resources */,
-				347C088D2CB177750081293F /* ContentView.swift */,
 				347C08912CB1777B0081293F /* iOS_iBeacon_Demo.entitlements */,
 			);
 			path = "iOS-iBeacon-Demo";
@@ -214,8 +236,9 @@
 		347C08BD2CB180670081293F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				34BD6FCD2CB5E084007ECE35 /* BeaconScannerModule */,
+				34BD6FCC2CB5E064007ECE35 /* PermissionModule */,
 				347C08922CB1777B0081293F /* Preview Content */,
-				34BD6FC02CB581A0007ECE35 /* BeaconViewModel.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -235,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				347C08D12CB2FA1B0081293F /* CoreLocationManager.swift */,
+				34BD6FE02CB646B7007ECE35 /* ObservableCoreLocationManager.swift */,
 			);
 			path = LocationServices;
 			sourceTree = "<group>";
@@ -290,6 +314,36 @@
 				34BD6FCA2CB5DE62007ECE35 /* AppLog.swift */,
 			);
 			path = Logger;
+			sourceTree = "<group>";
+		};
+		34BD6FCC2CB5E064007ECE35 /* PermissionModule */ = {
+			isa = PBXGroup;
+			children = (
+				34BD6FD42CB5ECC3007ECE35 /* AnyPermissionModuleCoordinator.swift */,
+				34BD6FD62CB5ECE4007ECE35 /* PermissionModule.swift */,
+				34BD6FD82CB5ED4C007ECE35 /* PermissionModuleScreen.swift */,
+				34BD6FDA2CB5EDA1007ECE35 /* PermissionCheck */,
+			);
+			path = PermissionModule;
+			sourceTree = "<group>";
+		};
+		34BD6FCD2CB5E084007ECE35 /* BeaconScannerModule */ = {
+			isa = PBXGroup;
+			children = (
+				34BD6FC02CB581A0007ECE35 /* BeaconViewModel.swift */,
+				347C088D2CB177750081293F /* BeaconScannerView.swift */,
+			);
+			path = BeaconScannerModule;
+			sourceTree = "<group>";
+		};
+		34BD6FDA2CB5EDA1007ECE35 /* PermissionCheck */ = {
+			isa = PBXGroup;
+			children = (
+				34BD6FDE2CB5EE80007ECE35 /* AnyPermissionCheckVMCoordinator.swift */,
+				34BD6FDC2CB5EE5B007ECE35 /* PermissionCheckViewModel.swift */,
+				34BD6FD02CB5E0D8007ECE35 /* PermissionCheckView.swift */,
+			);
+			path = PermissionCheck;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,13 +480,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				347C08CA2CB184270081293F /* BeaconRepositoryImpl.swift in Sources */,
+				34BD6FC82CB5DC7C007ECE35 /* AppModule.swift in Sources */,
 				34BD6FC12CB581A0007ECE35 /* BeaconViewModel.swift in Sources */,
 				34BD6FC32CB581C5007ECE35 /* MonitorBeacons.swift in Sources */,
-				347C088E2CB177750081293F /* ContentView.swift in Sources */,
+				347C088E2CB177750081293F /* BeaconScannerView.swift in Sources */,
+				34BD6FE12CB646B7007ECE35 /* ObservableCoreLocationManager.swift in Sources */,
 				34BD6FCB2CB5DE62007ECE35 /* AppLog.swift in Sources */,
+				34BD6FDF2CB5EE80007ECE35 /* AnyPermissionCheckVMCoordinator.swift in Sources */,
+				34BD6FD92CB5ED4C007ECE35 /* PermissionModuleScreen.swift in Sources */,
 				347C08D32CB2FEB90081293F /* iOS_iBeacon_DemoApp.swift in Sources */,
 				347C08D22CB2FA1B0081293F /* CoreLocationManager.swift in Sources */,
+				34BD6FD72CB5ECE4007ECE35 /* PermissionModule.swift in Sources */,
+				34BD6FD52CB5ECC3007ECE35 /* AnyPermissionModuleCoordinator.swift in Sources */,
+				34BD6FDD2CB5EE5B007ECE35 /* PermissionCheckViewModel.swift in Sources */,
+				34BD6FD32CB5E53B007ECE35 /* AppDelegate.swift in Sources */,
+				34BD6FC62CB5DC41007ECE35 /* AppModuleView.swift in Sources */,
 				347C08C82CB183DD0081293F /* BeaconRepository.swift in Sources */,
+				34BD6FD12CB5E0D8007ECE35 /* PermissionCheckView.swift in Sources */,
 				347C08C62CB183A00081293F /* Beacon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -601,6 +665,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need access to Bluetooth to detect and communicate with iBeacons.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need access to your location even when the app is in the background to monitor iBeacons.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "This app requires access to your location to detect nearby iBeacons and provide relevant notifications.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need access to your location while the app is in use to detect nearby iBeacons.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -645,6 +710,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need access to Bluetooth to detect and communicate with iBeacons.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need access to your location even when the app is in the background to monitor iBeacons.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "This app requires access to your location to detect nearby iBeacons and provide relevant notifications.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need access to your location while the app is in use to detect nearby iBeacons.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;

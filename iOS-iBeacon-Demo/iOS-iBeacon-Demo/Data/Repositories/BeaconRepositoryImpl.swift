@@ -7,16 +7,22 @@
 
 import Foundation
 
-final class BeaconRepositoryImpl: BeaconRepository {
-    private let locationManager: CoreLocationManager
-
-    init(locationManager: CoreLocationManager) {
-        self.locationManager = locationManager
-    }
-
-    func getBeacons() -> [Beacon] {
-        return locationManager.rangedBeacons.map { beacon in
-            return Beacon(uuid: beacon.uuid, major: beacon.major.intValue, minor: beacon.minor.intValue, proximity: beacon.proximity)
-        }
-    }
-}
+//final class BeaconRepositoryImpl: BeaconRepository {
+//    private let locationManager: CoreLocationManager
+//
+//    init(locationManager: CoreLocationManager) {
+//        self.locationManager = locationManager
+//    }
+//
+//    func getBeacons(for uuidString: String) -> [Beacon] {
+//        locationManager.startRangingBeacons(with: uuidString)
+//        return locationManager.rangedBeacons.map { beacon in
+//            return Beacon(
+//                uuid: beacon.uuid,
+//                major: beacon.major.intValue,
+//                minor: beacon.minor.intValue,
+//                proximity: beacon.proximity
+//            )
+//        }
+//    }
+//}

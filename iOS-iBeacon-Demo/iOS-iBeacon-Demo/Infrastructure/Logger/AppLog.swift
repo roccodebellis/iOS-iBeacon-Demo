@@ -33,7 +33,7 @@ class AppLog {
 
     // Method to log messages with different levels
     func log(_ message: String, level: LogLevel, file: String = #file, line: Int = #line, function: String = #function) {
-        guard level.rawValue >= minLogLevel.rawValue else { return } // Filter logs based on current minLogLevel
+        guard level >= minLogLevel else { return } // Filter logs based on current minLogLevel
         
         let fileName = (file as NSString).lastPathComponent
         let fullMessage = "[\(level.description)] [\(fileName):\(line) \(function)] - \(message)"
@@ -69,7 +69,7 @@ class AppLog {
 }
 
 // Define the log levels with a rawValue to ensure ordering
-enum LogLevel: Int, CustomStringConvertible {
+enum LogLevel: Int, CustomStringConvertible, Comparable {
     case debug = 1
     case info = 2
     case viewCycle = 3
@@ -85,4 +85,37 @@ enum LogLevel: Int, CustomStringConvertible {
         case .error: return "ERROR"
         }
     }
+    
+    // Compare log levels
+    static func < (lhs: LogLevel, rhs: LogLevel) -> Bool {
+        return lhs.rawValue < rhs.rawValue
+    }
+}
+
+extension AppLog {
+    static func log(_ level: LogLevel, _ message: String, file: String = #file, function: String = #function, line: Int = #line) {
+        AppLog.shared.log(message, level: level, file: file, line: line, function: function)
+    }
+    
+    // Convenience methods for each log level
+    static func debug(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
+        log(.debug, message, file: file, function: function, line: line)
+    }
+    
+    static func info(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
+        log(.info, message, file: file, function: function, line: line)
+    }
+    
+    static func warning(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
+        log(.warning, message, file: file, function: function, line: line)
+    }
+    
+    static func error(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
+        log(.error, message, file: file, function: function, line: line)
+    }
+    
+    static func viewCycle(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
+        log(.viewCycle, message, file: file, function: function, line: line)
+    }
+    
 }
