@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Begin Task" : {
+
+    },
     "Enter UUID" : {
 
     },
@@ -19,6 +22,9 @@
       }
     },
     "Launching..." : {
+
+    },
+    "Location Tracker" : {
 
     },
     "Major: %lld, Minor: %lld" : {
@@ -40,7 +46,22 @@
     "Proximity: %lld" : {
 
     },
+    "Remove" : {
+
+    },
+    "Start" : {
+
+    },
     "Start Ranging" : {
+
+    },
+    "Stop" : {
+
+    },
+    "Stop Task" : {
+
+    },
+    "Task Completion" : {
 
     },
     "UUID: %@" : {

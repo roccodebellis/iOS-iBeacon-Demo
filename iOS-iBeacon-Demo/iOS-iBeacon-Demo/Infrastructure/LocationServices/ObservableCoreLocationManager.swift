@@ -39,6 +39,10 @@ class ObservableCoreLocationManager: CoreLocationManager, ObservableObject, AnyO
             }
             AppLog.debug("Updated beacons: \(self.beacons.count) beacons detected")
         }
+        
+        // Start monitoring all stored UUIDs
+        let storedUUIDs = UUIDStorageManager().fetchUUIDs()
+        self.startMonitoringMultipleUUIDs(storedUUIDs)
     }
 }
 

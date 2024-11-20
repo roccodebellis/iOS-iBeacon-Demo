@@ -15,12 +15,15 @@ class BeaconViewModel: ObservableObject {
     
     /// The instance of `ObservableCoreLocationManager` that handles beacon scanning and location updates.
     private let locationManager: AnyObservableCoreLocationManager
+    private let uuidStorageManager = UUIDStorageManager()
     
     /// A published property that reflects the list of detected `Beacon` structs.
     @Published var beacons: [Beacon] = []
     
     /// A string representing the UUID for beacon scanning input from the user.
     @Published var inputUUID: String = ""
+    
+    @Published var uuids: [String] = []
     
     // MARK: - Initialization
     
@@ -33,6 +36,11 @@ class BeaconViewModel: ObservableObject {
         self.setupBeaconMonitoring()
     }
     
+    // Funzione di validazione dell'UUID
+    var isUUIDValid: Bool {
+        return !inputUUID.isEmpty && UUID(uuidString: inputUUID) != nil
+    }
+    
     // MARK: - Beacon Monitoring
     
     /// Sets up beacon monitoring by observing the beacons published from `ObservableCoreLocationManager`.
@@ -43,35 +51,31 @@ class BeaconViewModel: ObservableObject {
         AppLog.debug("Beacon monitoring set up in BeaconViewModel")
     }
     
-    // MARK: - Beacon Ranging
-
-    /// Updates the UUID used for beacon ranging.
-    ///
-    /// - Parameter uuid: The UUID string entered by the user.
-    func updateUUID(_ uuid: String) {
-        inputUUID = uuid
-        AppLog.info("UUID updated to \(uuid)")
+    func addUUIDToMonitor() {
+        uuidStorageManager.addUUID(inputUUID)
+        startRangingBeacons()
+        uuids.append(inputUUID)
     }
+    
+    func removeUUIDFromMonitor(_ uuid: String) {
+            uuidStorageManager.removeUUID(uuid)
+        stopRangingBeacons(with: uuid)
+            uuids.removeAll { $0 == uuid }
+        }
+    
+    // MARK: - Beacon Ranging
 
     /// Starts ranging for beacons based on the current `inputUUID`.
     ///
     /// If the UUID string is invalid, a log will indicate the issue.
-    func startRangingBeacons() {
-        guard !inputUUID.isEmpty else {
-            AppLog.warning("Cannot start ranging: UUID is empty")
-            return
-        }
+    private func startRangingBeacons() {
         AppLog.info("Starting beacon ranging with UUID \(inputUUID)")
         locationManager.startRangingBeacons(with: inputUUID)
     }
     
     /// Stops ranging for beacons based on the current `inputUUID`.
-    func stopRangingBeacons() {
-        guard !inputUUID.isEmpty else {
-            AppLog.warning("Cannot stop ranging: UUID is empty")
-            return
-        }
-        AppLog.info("Stopping beacon ranging with UUID \(inputUUID)")
-        locationManager.stopRangingBeacons(with: inputUUID)
+    private func stopRangingBeacons(with uuid: String) {
+        AppLog.info("Stopping beacon ranging with UUID \(uuid)")
+        locationManager.stopRangingBeacons(with: uuid)
     }
 }

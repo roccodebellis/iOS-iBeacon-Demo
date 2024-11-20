@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		34224A7C2CB88C1A00A19A78 /* UUIDStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34224A7B2CB88C1300A19A78 /* UUIDStorageManager.swift */; };
+		34224A902CB96FA400A19A78 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34224A8F2CB96FA400A19A78 /* AppConstants.swift */; };
+		34224A932CB96FC600A19A78 /* CompleteTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34224A922CB96FC600A19A78 /* CompleteTaskModel.swift */; };
+		34224A952CB96FD300A19A78 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34224A942CB96FD300A19A78 /* LocationModel.swift */; };
+		34224A972CB96FE300A19A78 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34224A962CB96FE300A19A78 /* LocationView.swift */; };
+		34224A992CB9706700A19A78 /* CompleteTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34224A982CB9706700A19A78 /* CompleteTaskView.swift */; };
 		347C088E2CB177750081293F /* BeaconScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C088D2CB177750081293F /* BeaconScannerView.swift */; };
 		347C08902CB1777B0081293F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 347C088F2CB1777B0081293F /* Assets.xcassets */; };
 		347C08942CB1777B0081293F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 347C08932CB1777B0081293F /* Preview Assets.xcassets */; };
@@ -54,8 +59,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		34224A8E2CB96A3700A19A78 /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed ExtensionKit Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		34224A7B2CB88C1300A19A78 /* UUIDStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDStorageManager.swift; sourceTree = "<group>"; };
+		34224A8F2CB96FA400A19A78 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		34224A922CB96FC600A19A78 /* CompleteTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTaskModel.swift; sourceTree = "<group>"; };
+		34224A942CB96FD300A19A78 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		34224A962CB96FE300A19A78 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		34224A982CB9706700A19A78 /* CompleteTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTaskView.swift; sourceTree = "<group>"; };
 		347C08882CB177750081293F /* iOS-iBeacon-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-iBeacon-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		347C088B2CB177750081293F /* iOS_iBeacon_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_iBeacon_DemoApp.swift; sourceTree = "<group>"; };
 		347C088D2CB177750081293F /* BeaconScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconScannerView.swift; sourceTree = "<group>"; };
@@ -114,6 +137,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34224A912CB96FC200A19A78 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				34224A942CB96FD300A19A78 /* LocationModel.swift */,
+				34224A962CB96FE300A19A78 /* LocationView.swift */,
+				34224A922CB96FC600A19A78 /* CompleteTaskModel.swift */,
+				34224A982CB9706700A19A78 /* CompleteTaskView.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		347C087F2CB177750081293F = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +175,7 @@
 				34BD6FD22CB5E53B007ECE35 /* AppDelegate.swift */,
 				34BD6FC72CB5DC7C007ECE35 /* AppModule.swift */,
 				34BD6FC52CB5DC41007ECE35 /* AppModuleView.swift */,
+				34224A8F2CB96FA400A19A78 /* AppConstants.swift */,
 				347C08B62CB180390081293F /* Domain */,
 				347C08BA2CB180520081293F /* Data */,
 				347C08BD2CB180670081293F /* Presentation */,
@@ -182,6 +217,7 @@
 		347C08B62CB180390081293F /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				34224A912CB96FC200A19A78 /* Models */,
 				347C08B72CB1803E0081293F /* Entities */,
 				347C08B82CB180460081293F /* UseCases */,
 				347C08B92CB1804D0081293F /* Interfaces */,
@@ -362,6 +398,7 @@
 				347C08842CB177750081293F /* Sources */,
 				347C08852CB177750081293F /* Frameworks */,
 				347C08862CB177750081293F /* Resources */,
+				34224A8E2CB96A3700A19A78 /* Embed ExtensionKit Extensions */,
 			);
 			buildRules = (
 			);
@@ -415,7 +452,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					347C08872CB177750081293F = {
@@ -488,8 +525,11 @@
 				347C08CA2CB184270081293F /* BeaconRepositoryImpl.swift in Sources */,
 				34BD6FC82CB5DC7C007ECE35 /* AppModule.swift in Sources */,
 				34BD6FC12CB581A0007ECE35 /* BeaconViewModel.swift in Sources */,
+				34224A902CB96FA400A19A78 /* AppConstants.swift in Sources */,
+				34224A992CB9706700A19A78 /* CompleteTaskView.swift in Sources */,
 				34BD6FC32CB581C5007ECE35 /* MonitorBeacons.swift in Sources */,
 				34BD6FEE2CB65F92007ECE35 /* AnyCoreLocationManager.swift in Sources */,
+				34224A932CB96FC600A19A78 /* CompleteTaskModel.swift in Sources */,
 				347C088E2CB177750081293F /* BeaconScannerView.swift in Sources */,
 				34BD6FE12CB646B7007ECE35 /* ObservableCoreLocationManager.swift in Sources */,
 				34BD6FCB2CB5DE62007ECE35 /* AppLog.swift in Sources */,
@@ -499,11 +539,13 @@
 				347C08D22CB2FA1B0081293F /* CoreLocationManager.swift in Sources */,
 				34BD6FD72CB5ECE4007ECE35 /* PermissionModule.swift in Sources */,
 				34BD6FD52CB5ECC3007ECE35 /* AnyPermissionModuleCoordinator.swift in Sources */,
+				34224A952CB96FD300A19A78 /* LocationModel.swift in Sources */,
 				34BD6FDD2CB5EE5B007ECE35 /* PermissionCheckViewModel.swift in Sources */,
 				34BD6FD32CB5E53B007ECE35 /* AppDelegate.swift in Sources */,
 				34BD6FC62CB5DC41007ECE35 /* AppModuleView.swift in Sources */,
 				34224A7C2CB88C1A00A19A78 /* UUIDStorageManager.swift in Sources */,
 				347C08C82CB183DD0081293F /* BeaconRepository.swift in Sources */,
+				34224A972CB96FE300A19A78 /* LocationView.swift in Sources */,
 				34BD6FD12CB5E0D8007ECE35 /* PermissionCheckView.swift in Sources */,
 				347C08C62CB183A00081293F /* Beacon.swift in Sources */,
 			);
@@ -683,6 +725,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -726,6 +769,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

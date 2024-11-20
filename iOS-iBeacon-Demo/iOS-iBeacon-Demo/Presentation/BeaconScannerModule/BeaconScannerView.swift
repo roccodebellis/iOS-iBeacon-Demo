@@ -10,21 +10,45 @@ import SwiftUI
 /// `BeaconScannerView` is responsible for displaying the list of detected beacons.
 struct BeaconScannerView: View {
     @ObservedObject var viewModel: BeaconViewModel
-    @State private var inputUUID: String = ""
     
     var body: some View {
         VStack {
-            TextField("Enter UUID", text: $inputUUID)
+            HStack {
+                TextField(
+                    "Enter UUID",
+                    text: $viewModel.inputUUID
+                )
                 .padding()
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .onChange(of: inputUUID) { newUUID in
-                    viewModel.updateUUID(newUUID)
+
+                if !viewModel.inputUUID.isEmpty {
+                    Button(action: {
+                        viewModel.inputUUID = "" // Cancella il contenuto
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.gray)
+                    }
+                    .padding(.trailing, 8)
                 }
+            }
 
             Button(action: {
-                viewModel.startRangingBeacons()
+                viewModel.addUUIDToMonitor()
             }) {
                 Text("Start Ranging")
+            }
+            //.disabled(!viewModel.isUUIDValid)
+            
+            List(viewModel.uuids, id: \.self) { uuid in
+                HStack {
+                    Text(uuid)
+                    Spacer()
+                    Button(action: {
+                        viewModel.removeUUIDFromMonitor(uuid)
+                    }) {
+                        Text("Remove").foregroundColor(.red)
+                    }
+                }
             }
 
             List(Array(viewModel.beacons.enumerated()), id: \.offset) { offset, beacon in
